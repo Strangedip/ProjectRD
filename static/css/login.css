@@ -1,0 +1,91 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    height: 100vh;
+    /* background-color:  rgba(146, 231, 252, 0.473); */
+    background: linear-gradient(to bottom, rgba(146, 231, 252, 0.473),rgba(228, 244, 248, 0.801));
+}
+
+nav {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5em;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+}
+.logo-text{
+    font-size: 3em;
+    color: rgba(146, 231, 252, 0.726);
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 13em;
+}
+
+.login-container {
+    background-color: rgb(255, 255, 255);
+    padding: 5em 10em;
+    transform: translateY(-5em);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 1em;
+}
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 1.5em;
+}
+
+#in-email,
+#in-pass,
+#btn-submit {
+    transition: 0.3s;
+    height: 2.8em;
+    font-size: 1em;
+    width: 20em;
+    border-radius: 1em;
+    border: none;
+    outline: 0.1px solid rgba(0, 0, 0, 0.116);
+}
+
+#in-email,
+#in-pass {
+    padding: 0em 0em 0em 1em;
+    background-color: rgba(255, 255, 255, 0.164);
+}
+
+#in-email:focus,
+#in-pass:focus {
+    background-color: rgba(146, 231, 252, 0.164);
+    outline: 0.1px solid rgba(0, 0, 0, 0.336);
+}
+
+#btn-submit:hover {
+    transition: 0.3s;
+    background-color: rgba(146, 231, 252, 0.164);
+    box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.164);
+}
+
+#btn-submit:active {
+    background-color: rgba(146, 231, 252, 0.164);
+    box-shadow: none;
+}
+
+footer {
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+}

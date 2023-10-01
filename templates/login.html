@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Login page</title>
+<link rel="stylesheet" href="/static/css/login.css">
+{% endblock %}
+
+{% block body %}
+<header>
+    <nav>
+        <div class="logo-text">R</div>
+        <img src="/static/img/logo1.png" alt="LOGO" width="100px">
+        <div class="logo-text">D</div>
+    </nav>
+</header>
+<main>
+    <div class="login-container">
+        <form class="form-control" action="/home">
+            <input type="email" name="email" id="in-email" placeholder="Enter Email">
+            <input type="password" name="password" id="in-pass" placeholder="Enter Password">
+            <input type="submit" id="btn-submit" value="Log in">
+        </form>
+    </div>
+</main>
+<footer>@ProjectRD for Sahil</footer>
+{% endblock %}
+
+{% block script %}
+<script src="/static/js/script.js"></script>
+{% endblock %}
