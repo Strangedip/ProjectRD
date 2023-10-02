@@ -26,5 +26,13 @@
 {% endblock %}
 
 {% block script %}
-<script src="/static/js/script.js"></script>
+<!-- <script src="/static/js/script.js"></script> -->
+<script>
+    if ('{{msg}}' == 'false') {
+        alert('Invalid cred');
+    }
+    else if('{{msg}}' == 'true'){
+        alert('success');
+    }
+</script>
 {% endblock %}
