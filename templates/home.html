@@ -10,15 +10,15 @@
     <nav>
         <div class="logo">
             <div class="logo-text">R</div>
-            <img src="/static/img/logo1.png" alt="LOGO" width="100px">
+            <img src="/static/img/logo1.png" alt="LOGO" width="80px">
             <div class="logo-text">D</div>
         </div>
         <div class="tabs">
             <ul>
-                <li><a href="">Current Inventry</a></li>
-                <li><a href="">Create Order</a></li>
-                <li><a href="">Current Orders</a></li>
-                <li><a href="">Order History</a></li>
+                <li><a href="/inventory">Current Inventry</a></li>
+                <li><a href="/create-order">Create Order</a></li>
+                <li><a href="/current-orders">Current Orders</a></li>
+                <li><a href="/order-history">Order History</a></li>
             </ul>
         </div>
     </nav>
@@ -31,5 +31,4 @@
 
 {% block script %}
 <!-- <script src="/static/js/script.js"></script> -->
-<script>{{msg}}</script>
 {% endblock %}
