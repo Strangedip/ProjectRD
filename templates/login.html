@@ -5,14 +5,19 @@
 <link rel="stylesheet" href="/static/css/login.css">
 {% endblock %}
 
-{% block body %}
+{% block header %}
 <header>
     <nav>
-        <div class="logo-text">R</div>
-        <img src="/static/img/logo1.png" alt="LOGO" width="100px">
-        <div class="logo-text">D</div>
+        <a href="#" class="logo">
+            <div class="logo-text">R</div>
+            <img src="/static/img/logo1.png" alt="LOGO" width="100px">
+            <div class="logo-text">D</div>
+        </a>
+        <button id="btn-theme" onclick="switchTheme()">Light</button>
     </nav>
 </header>
+{% endblock %}
+{% block body %}
 <main>
     <div class="login-container">
         <form class="form-control" action="/home">
@@ -26,13 +31,5 @@
 {% endblock %}
 
 {% block script %}
-<!-- <script src="/static/js/script.js"></script> -->
-<script>
-    if ('{{msg}}' == 'false') {
-        alert('Invalid cred');
-    }
-    else if('{{msg}}' == 'true'){
-        alert('success');
-    }
-</script>
+<script src="/static/js/script.js"></script>
 {% endblock %}

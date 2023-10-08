@@ -13,6 +13,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
+
 class Inventory(db.Model):
     Item_ID = db.Column(db.Integer, primary_key=True)
     Item_Name = db.Column(db.String(50), nullable=False)
@@ -23,8 +24,11 @@ class Inventory(db.Model):
         return f'<{self.Item_Name}>'
 
 
+loggedIn = False
+
 
 def verify(email, password):
+    global loggedIn
     conn = sqlite3.connect('database.db')
     conn.row_factory = sqlite3.Row
     user = conn.execute(
@@ -33,6 +37,7 @@ def verify(email, password):
     if user is None:
         return False
     if password == user['password']:
+        loggedIn = True
         return True
     return False
 
@@ -47,39 +52,54 @@ def home():
     email = request.values.get('email')
     password = request.values.get('password')
     if verify(email, password):
-        return render_template('home.html', msg="true")
+        return render_template('home.html')
 
     return redirect(url_for('invalid_login_msg'))
 
 
 @app.route('/invalid-credentials')
 def invalid_login_msg():
-    return render_template('error.html')
+    return render_template('invalid-creds.html')
 
 
 @app.route('/inventory')
 def inventory():
-    return render_template('inventory.html')
+    global loggedIn
+    if (loggedIn):
+        return render_template('inventory.html')
+    return redirect(url_for('invalid_login_msg'))
 
 
 @app.route('/create-order')
 def create_order():
-    return render_template('create-order.html')
+    global loggedIn
+    if (loggedIn):
+        return render_template('create-order.html')
+    return redirect(url_for('invalid_login_msg'))
 
 
 @app.route('/current-orders')
 def current_orders():
-    return render_template('current-orders.html')
+    global loggedIn
+    if (loggedIn):
+        return render_template('current-orders.html')
+    return redirect(url_for('invalid_login_msg'))
 
 
 @app.route('/order-history')
 def order_history():
-    return render_template('order-history.html')
+    global loggedIn
+    if (loggedIn):
+        return render_template('order-history.html')
+    return redirect(url_for('invalid_login_msg'))
 
 
 @app.route('/create')
 def create():
-    return render_template('error.html')
+    global loggedIn
+    if (loggedIn):
+        return redirect(url_for('invalid_login_msg'))
+    return redirect(url_for('invalid_login_msg'))
 
 
 app.run(debug=True)

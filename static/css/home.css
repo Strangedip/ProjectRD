@@ -6,13 +6,30 @@
 }
 
 body {
+    --bg-primary: rgb(55, 194, 240);
+    --bg-secondary: rgb(255, 255, 255);
+    --font: rgb(55, 194, 240);
+    --font-hover:rgb(255, 255, 255);
+    --nav: rgb(255, 255, 255);
+    --hover:rgb(55, 194, 240);
+    --footer:#fff;
+
     height: 100vh;
-    /* background-color:  rgba(146, 231, 252, 0.473); */
-    background: linear-gradient(to bottom, rgba(146, 231, 252, 0.473), rgba(228, 244, 248, 0.801));
+    background: linear-gradient(to top, var(--bg-primary) 10%, var(--bg-secondary) );
+}
+
+body.dark {
+    --bg-primary: rgb(58, 58, 58);
+    --bg-secondary: rgb(36, 36, 36);
+    --font: rgb(55, 194, 240);
+    --font-hover:rgb(255, 255, 255);
+    --nav: rgb(59, 59, 59);
+    --hover:rgb(121, 121, 121);
+    --footer:rgb(55, 194, 240);
 }
 
 nav {
-    background-color: rgb(255, 255, 255);
+    background-color: var(--nav);
     display: flex;
     padding: 0.5em 5em;
     box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
@@ -22,22 +39,59 @@ nav {
 
 .logo,
 .tabs>ul {
+    cursor: pointer;
     display: flex;
     flex-direction: row;
     list-style: none;
+    justify-content: center;
+    align-items: center;
 }
 
-.tabs>ul>li {
-    padding: 1em;
+ul {
+    gap: 1em;
 }
 
-li>a {
+.tabs>ul>li>a {
+    transition: 0.3s;
+    display: block;
+    padding: 1em 1em;
+    font-weight: bold;
+    color: var(--font);
+    border-radius: 1em;
+}
+
+.tabs>ul>li>a:hover {
+    transition: 0.3s;
+    background: var(--hover);
+    color: var(--font-hover);
+}
+
+li>a,
+.logo {
     text-decoration: none;
 }
 
+
 .logo-text {
     font-size: 3em;
-    color: rgba(146, 231, 252, 0.726);
+    color: rgb(55, 194, 240);
+}
+
+#btn-theme {
+    padding: 1em;
+    border-radius: 2em;
+    border: 1px solid var(--bg-primary);
+    background-color: var(--bg-secondary);
+    color: var(--font);
+    font-weight: bold;
+}
+#btn-theme:hover{
+    padding: 1em;
+    border-radius: 2em;
+    border: 1px solid var(--bg-secondary);
+    background-color: var(--bg-primary);
+    color: var(--font-hover);
+    font-weight: bold;
 }
 
 main {
@@ -48,6 +102,7 @@ main {
 }
 
 footer {
+    color: var(--footer);
     padding: 1em;
     display: flex;
     justify-content: center;

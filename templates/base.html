@@ -9,6 +9,27 @@
 </head>
 
 <body>
+    {% block header %}
+    <header>
+        <nav id="nav">
+            <div class="logo">
+                <div class="logo-text">R</div>
+                <img src="/static/img/logo1.png" alt="LOGO" width="80px">
+                <div class="logo-text">D</div>
+            </div>
+            <div class="tabs">
+                <ul>
+                    <li><a href="/inventory">Current Inventory</a></li>
+                    <li><a href="/create-order">Create Order</a></li>
+                    <li><a href="/current-orders">Current Orders</a></li>
+                    <li><a href="/order-history">Order History</a></li>
+                    <button id="btn-theme" onclick="switchTheme()">Light</button>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    {% endblock %}
+
     {% block body %}
     {% endblock %}
 

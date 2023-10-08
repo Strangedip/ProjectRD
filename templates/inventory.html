@@ -4,49 +4,14 @@
 <link rel="stylesheet" href="/static/css/inventory.css">
 {% endblock %}
 
+
 {% block body %}
-<header>
-    <nav>
-        <div class="logo">
-            <div class="logo-text">R</div>
-            <img src="/static/img/logo1.png" alt="LOGO" width="80px">
-            <div class="logo-text">D</div>
-        </div>
-        <div class="tabs">
-            <ul>
-                <li><a href="/inventory">Current Inventry</a></li>
-                <li><a href="/create-order">Create Order</a></li>
-                <li><a href="/current-orders">Current Orders</a></li>
-                <li><a href="/order-history">Order History</a></li>
-            </ul>
-        </div>
-    </nav>
-</header>
 <main>
-    <h1>Inventory</h1>
-    <div><button id="btn-add-item" onclick="toggleForm()">Add new item</button></div>
-    <div id="new-item-form">
-        <form action="/Item-added" class="form-control"></form>
-        <input type="text" class="new-item" id="in-item-name" placeholder="Item Name" required>
-        <input type="text" class="new-item" id="in-item-price" placeholder="Item Price/Day" required>
-        <input type="text" class="new-item" id="in-item-count" placeholder="Item Count" required>
-        <input type="button" class="new-item" id="btn-new-item" value="Add">
-    </div>
+    
 </main>
 <footer>@ProjectRD for Sahil</footer>
 {% endblock %}
 
 {% block script %}
-<script>
-    function toggleForm() {
-        if (document.getElementById('new-item-form').style.display === "none") {
-            document.getElementById('new-item-form').style.display = "";
-            document.getElementById('btn-add-item').innerHTML = 'Close';
-        }
-        else {
-            document.getElementById('new-item-form').style.display = "none";
-            document.getElementById('btn-add-item').innerHTML = 'Add new item';
-        }
-    }
-</script>
+<script src="/static/js/script.js"></script>
 {% endblock %}
